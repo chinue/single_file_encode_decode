@@ -10,6 +10,6 @@ gcc main.c -fPIC -O3 -lm -DNDEBUG -o test
 ### test
 
 ```bash
-./test video/cactus.mp4 out.mp4 -crf 29
+./test cactus.mp4 out.mp4 -crf 29
 ```
 
