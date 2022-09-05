@@ -385,7 +385,9 @@ static FILE* ffmpeg_create_reader_full(const char* pName, FFPixFmt pixfmt, int w
     if(pixfmt<=FF_YUV || width<=0 || height<=0 || !isVideo || idxFrame>0)
     {
         FFInfo info;
-        pixfmt=ffmpeg_get_video_info(pName, &info)->pixfmt;
+        ffmpeg_get_video_info(pName, &info);
+        if(pixfmt<=FF_YUV)
+            pixfmt=info.pixfmt;
         if(width<=0 || height<=0)
             width=info.width, height=info.height;
         if(!isVideo)
